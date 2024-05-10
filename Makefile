@@ -11,8 +11,11 @@ define RARIES
 	ft
 	ftprintf
 	error
-	ui
 	cplx
+	iterator
+	screen
+	ui
+	camera
 	fractol
 endef
 

@@ -1,5 +1,6 @@
 #ifndef LIBCPLX_H
 # define LIBCPLX_H
+
 typedef struct s_pt	t_pt;
 
 struct s_pt

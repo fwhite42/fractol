@@ -1,18 +1,12 @@
-#include"libcplx.h"
+#include"libfractol.h"
+#include"libiterator.h"
 
-double fractol_evaluate(t_pt c, int max_iteration, t_pt (*next)(t_pt z, t_pt c))
+int	fractol_evaluate(t_fractol *self, t_pt pt)
 {
-	t_pt z;
-	int i;
-	
-	i = 0;
-	z = cplx_zero();
-	while (i < max_iteration)
-	{
-		z = next(z, c);
-		if (cplx_abs(z) >= 2)
-			break;
-		i++;
-	}
-	return (i);
+	t_iterator	iterator;
+
+	iterator_init(&iterator);
+	iterator.n = 4;
+	self->iterator(&iterator, pt);
+	return (iterator_run(&iterator));
 }

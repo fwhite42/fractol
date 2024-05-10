@@ -1,12 +1,11 @@
 define METHODS
 	create_null
-	create
+	create_default
 	start
 	destroy
-	rescale
-	transform
-	translate
 	evaluate
+	draw
+	exit
 endef
 
 include ../Makefile
