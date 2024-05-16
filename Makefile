@@ -3,21 +3,21 @@ MK	?= mk
 # Force the value of $(NAME)
 NAME	:= fractol
 # Tells core.mk to link X11 libraries when compiling $(NAME).c
-X11	:= TRUE
+X11	:= FALSE
+
+MLX_MACOS := TRUE
 
 # Source libraries
-define RARIES
-	mlx
-	ft
-	ftprintf
-	error
-	cplx
-	iterator
-	screen
-	ui
-	camera
-	fractol
-endef
+RARIES	:=		\
+	mlx			\
+	ft			\
+	ftprintf	\
+	error		\
+	parser		\
+	cplx		\
+	iterator	\
+	screen		\
+	camera		\
+	fractol		
 
-# Makefile Logic
 include $(MK)/core.mk

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                              4 2              */
+/*   ft_split2.c                                             4 2              */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fwhite42 <FUCK THE NORM>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:04:08 by fwhite42          #+#    #+#             */
-/*   Updated: 2024/05/07 18:08:09 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/07 18:12:26 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-char	*ft_read_word(const char **src, char sep)
+char	*ft_read_word(const char **src, char *sep)
 {
 	int		len;
 	char	*word;
 
 	len = 0;
-	while (**src == sep && **src != 0)
+	while (ft_strchr(sep, **src) != NULL && **src != 0)
 		(*src)++;
-	while ((*src)[len] != sep && (*src)[len] != 0)
+	while (ft_strchr(sep, **src) == NULL && (*src)[len] != 0)
 		len++;
 	word = (char *)malloc(len + 1);
 	if (!word)
@@ -30,7 +30,7 @@ char	*ft_read_word(const char **src, char sep)
 	return (word);
 }
 
-void	ft_rsplit(int *i, char ***dst, const char **src, char sep)
+void	ft_rsplit(int *i, char ***dst, const char **src, char *sep)
 {
 	char	*word;
 	int		j;
@@ -58,7 +58,7 @@ void	ft_rsplit(int *i, char ***dst, const char **src, char sep)
 		(*dst)[j] = word;
 }
 
-char	**ft_split(const char *src, char sep)
+char	**ft_split2(const char *src, char *sep)
 {
 	char	**split;
 	int		i;

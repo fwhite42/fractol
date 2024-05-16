@@ -11,6 +11,7 @@ struct s_screen
 	char	*title;
 	void	*win;
 	void	*img;
+	void	*black_screen;
 	int	*imgbuff;
 };
 

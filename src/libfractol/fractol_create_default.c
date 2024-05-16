@@ -13,5 +13,6 @@ t_fractol	*fractol_create_default(void)
 	self->screen = screen_create((t_pt) {800, 800}, "Fract'ol", self->mlx);
 	self->camera = camera;
 	self->iterator = iterator_mandelbrot;
+	self->update = 1;
 	return (self);
 }

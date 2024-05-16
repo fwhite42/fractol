@@ -14,7 +14,6 @@ void	screen_foreach_px(t_screen *self, void (*fn)(), void *caller)
 	{
 		while (y < self->size.y)
 		{
-			printf("Iter (%f, %f)\n", x, y);
 			if (caller == NULL)
 				fn((t_pt) {x, y});
 			else 

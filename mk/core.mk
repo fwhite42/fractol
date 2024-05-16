@@ -100,9 +100,9 @@ libraries: $(LIBRARY_FILES)
 ###############################################################################
 
 ## Implicit rules for compiling .c files
-CC		?= gcc
+CC			?= gcc
 CFLAGS		?= -Wall -Werror -Wextra
-CPPFLAGS	?= -Iinclude 
+CPPFLAGS	?= -Iinclude -lm
 
 ###############################################################################
 # Library linking
@@ -122,10 +122,14 @@ define reverse
 $(if $(1),$(call reverse,$(wordlist 2,$(words $(1)),$(1)))) $(firstword $(1))
 endef
 
-LINKS	:= $(call reverse, $(RARIES:%=-l%))
+LINKS	:= $(call reverse, $(LIBRARY_FILES))
 
 ifeq ($(X11), TRUE)
 LINKS	+= -lX11 -lXext
+endif
+
+ifeq ($(MLX_MACOS), TRUE)
+CFLAGS += -framework OpenGL -framework AppKit
 endif
 
 .PHONY: check_links
@@ -138,7 +142,7 @@ check_links:
 ###############################################################################
 
 ## $(NAME) is compiled with implicit rules from $(NAME).c. 
-$(NAME):	$(NAME).c $(LINKS) -lm
+$(NAME):	$(NAME).c $(LINKS)
 
 ###############################################################################
 # Cleaners

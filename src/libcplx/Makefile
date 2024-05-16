@@ -1,9 +1,8 @@
-define METHODS
-	zero
-	abs
-	square
-	sum
+METHODS	:=		\
+	zero		\
+	abs			\
+	square		\
+	sum			\
 	multiply
-endef
 
 include ../Makefile

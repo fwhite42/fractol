@@ -1,4 +1,3 @@
-#include "error.h"
 #include "liberror.h"
 
 void	error_set_value(void *self, int value) {

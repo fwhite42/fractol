@@ -1,5 +1,4 @@
 #include"liberror.h"
-#include"error.h"
 
 void	error_log(char *message, int value)
 {

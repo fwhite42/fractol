@@ -2,6 +2,7 @@
 #include"libiterator.h"
 
 // computes z0^n + c, where n and c are read from the fields of self.
+/*
 static t_pt	iterator_run_once(t_iterator *self, t_pt z0)
 {
 	double	x;
@@ -21,10 +22,21 @@ static t_pt	iterator_run_once(t_iterator *self, t_pt z0)
 	y += self->c.y;
 	return ((t_pt) {x, y});
 }
-
-int	iterator_run(t_iterator *self)
+*/
+static t_pt iterator_run_once(t_iterator *self, t_pt z0)
 {
-	int	i;
+	t_pt	pt;
+
+	pt.x = z0.x * z0.x - z0.y * z0.y;
+	pt.y = 2 * z0.x * z0.y;
+	pt.x += self->c.x;
+	pt.y += self->c.y;
+	return (pt);
+}
+
+double	iterator_run(t_iterator *self)
+{
+	double i;
 	t_pt	z;
 
 	z = self->z0;
@@ -32,10 +44,9 @@ int	iterator_run(t_iterator *self)
 	while (i < self->max_iteration)
 	{
 		z = iterator_run_once(self, self->f(z));
-		if (cplx_abs(z) > self->r)
+		if (z.x * z.x + z.y * z.y * z.y  > (self->r * self->r)) 
 			break;
-		else
-			i++;
+		i += 1;
 	}
 	return (i);
 }
