@@ -41,8 +41,19 @@ $(LIBRARY_FILES):$(libdir)/%.a: $(HEADERS) $(call archive_path,$$*) | $(libdir)
 
 CC			:= gcc
 CFLAGS		:= -Wall -Werror -Wextra -o3
-CPPFLAGS	:= -I$(includedir) -framework OpenGl -framework AppKit
+CPPFLAGS	:= -I$(includedir)
 vpath %.a	$(libdir)
+
+ifeq ($(OS),Darwin)
+CPPFLAGS += -framework OpenGl -framework AppKit
+
+endif
+
+ifeq ($(OS),Linux)
+CPPFLAGS += -X11 -Xext
+endif
+
+
 
 $(NAME)		:$(NAME).c $(LIBRARY_FILES)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $^ $(LINK_LIBRARIES) -o $@

@@ -5,9 +5,9 @@
 double	fractol_evaluate(t_fractol *self, t_pt pt)
 {
 	double			iterations;
-	double		scale;
+//	double		scale;
 
-	scale = self->camera.size.x / self->screen->size.x;
+//	scale = self->camera.size.x / self->screen->size.x;
 	//iterator_init(&(self->iterator_data));
 	self->iterator(&(self->iterator_data), pt);
 	iterations = iterator_run(&self->iterator_data);
