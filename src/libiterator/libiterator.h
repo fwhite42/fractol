@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/16 12:44:19 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/16 12:49:32 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/18 19:46:48 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ double				iterator_run(t_iterator *self);
 // Sets the config for supported fractals
 void				iterator_julia(t_iterator *self, t_pt pt);
 void				iterator_mandelbrot(t_iterator *self, t_pt pt);
+void				iterator_burning_ship(t_iterator *self, t_pt pt);
 
 // Explict definition of the iterator structor
 struct s_iterator

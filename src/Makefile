@@ -40,7 +40,7 @@ check:
 
 ## Implicit rules for compiling C programs
 CC		:= gcc
-CFLAGS		:= -Wall -Werror -Wextra
+CFLAGS		:= -Wall -Werror -Wextra -o3
 CPPFLAGS	:= -I$(includedir) -I$(CURDIR)	
 
 ## Look inside $(includedir) for header files (if $(includedir) is defined)

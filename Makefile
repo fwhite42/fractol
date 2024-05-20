@@ -15,9 +15,11 @@ RARIES	:=		\
 	error		\
 	parser		\
 	cplx		\
+	color		\
 	iterator	\
 	screen		\
 	camera		\
 	fractol		
 
+.DEFAULT_GOAL	:= all
 include $(MK)/core.mk

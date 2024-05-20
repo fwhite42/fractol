@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/16 14:41:46 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/16 16:37:31 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/16 18:25:10 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include"libft.h"
 #include"stddef.h"
 #include"liberror.h"
+#include"libftprintf.h"
 
 static t_cmd_line_option _parse_one_option(char *option)
 {
@@ -45,7 +46,7 @@ void	parser_parse_cmd_line_options(t_parser *self, int ac, char **av)
 		self->options = NULL;
 		return ;
 	}
-	options = ft_calloc(ac - 1, sizeof (char*));
+	options = ft_calloc(ac - 1, sizeof (t_cmd_line_option));
 	if (options == NULL)
 		error_fatal("Out of memory", -42);
 	i = 1;

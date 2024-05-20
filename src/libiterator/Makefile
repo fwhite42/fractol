@@ -1,7 +1,8 @@
 METHODS	:=			\
-	run			\
+	run				\
 	init			\
 	julia			\
+	burning_ship	\
 	mandelbrot
 
 include ../Makefile

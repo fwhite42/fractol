@@ -1,4 +1,5 @@
 #include"libfractol.h"
+#include"libftprintf.h"
 #include"libmlx.h"
 #include<stdio.h>
 
@@ -34,17 +35,37 @@ static int	fractol_onkeypress(int keycode, void *this)
 	if (keycode == KEY_ESC || keycode == KEY_SPACE_BAR)
 		return (mlx_clear_window(self->mlx, self->screen->win));
 	else if (keycode == KEY_MOVE_UP)
-		self->camera.center.y += KEYPRESS_DELTA / self->screen->size.y;
+		self->camera.center.y += self->camera.size.y / KEYPRESS_DELTA;
 	else if (keycode == KEY_MOVE_DOWN)
-		self->camera.center.y -= KEYPRESS_DELTA / self->screen->size.y;
+		self->camera.center.y -= self->camera.size.y / KEYPRESS_DELTA;
 	else if (keycode == KEY_MOVE_LEFT)
-		self->camera.center.x -= KEYPRESS_DELTA / self->screen->size.x;
+		self->camera.center.x -= self->camera.size.x / KEYPRESS_DELTA;
 	else if (keycode == KEY_MOVE_RIGHT)
-		self->camera.center.x += KEYPRESS_DELTA / self->screen->size.x;
+		self->camera.center.x += self->camera.size.x / KEYPRESS_DELTA;
+	else if (keycode == KEY_XMOVE_UP)
+		self->iterator_data.c.y += self->camera.size.y / KEYPRESS_DELTA;
+	else if (keycode == KEY_XMOVE_DOWN)
+		self->iterator_data.c.y -= self->camera.size.y / KEYPRESS_DELTA;
+	else if (keycode == KEY_XMOVE_LEFT)
+		self->iterator_data.c.x -= self->camera.size.x / KEYPRESS_DELTA;
+	else if (keycode == KEY_XMOVE_RIGHT)
+		self->iterator_data.c.x += self->camera.size.x / KEYPRESS_DELTA;
 	else if (keycode == KEY_ZOOM_IN)
 		fractol_onzoom(4, camera.center.x, camera.center.y, self);
 	else if (keycode == KEY_ZOOM_OUT)
 		fractol_onzoom(5, camera.center.x, camera.center.y, self);
+	else if (keycode == KEY_MORE_ITER)
+		self->iterator_data.max_iteration *= 2;
+	else if (keycode == KEY_LESS_ITER)
+	{
+		if (self->iterator_data.max_iteration > 1)
+			self->iterator_data.max_iteration /= 2;
+	}
+	else
+	{
+		ft_printf("Keycode : %#x\n", keycode);
+		return (1);
+	}
 	self->update = 1;
 	return (0);
 }
@@ -55,12 +76,12 @@ static int	fractol_onloop(void *self)
 
 	this = self;
 	this->loop_counter++;
-	printf("loppv: %i\n", this->loop_counter);
 	if (this->update == 0)
 		return (0);
 	if (this->loop_counter > MLX_LOOPS_COUNTER_TH)
 	{
 		this->loop_counter = 0;
+		ft_printf("Received user input, redrawing...\n");
 		fractol_draw(self);
 	}
 	this->update = 0;

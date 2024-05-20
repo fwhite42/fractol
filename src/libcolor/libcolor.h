@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   parser_print.c                                          4 2              */
+/*   libcolor.h                                              4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/16 16:09:51 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/18 13:20:23 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/18 22:27:30 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/20 11:51:21 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libparser.h"
-#include"libftprintf.h"
+#ifndef LIBCOLOR_H
+# define LIBCOLOR_H
 
-void	_print_option(t_cmd_line_option option)
+typedef struct s_rgbapt	t_rgbapt;
+
+t_rgbapt	color_to_rgbapt(int color);
+int			color_from_rgbapt(t_rgbapt color);
+int			color_interpolate(int color1, int color2, double t);
+int			*color_palette_create(int *a, int *b, int c);
+int			*color_palette_destroy(int *palette);
+
+struct s_rgbapt
 {
-	ft_printf("\t%s:\t\"%s\";\n", option.key, option.value);
-}
-
-void	parser_print(t_parser *self)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("{\n");
-	while (i < self->nbr_of_options)
-		_print_option(self->options[i++]);
-	ft_printf("}\n");
-}
+	double	r;
+	double	g;
+	double	b;
+	double	a;
+};
+#endif

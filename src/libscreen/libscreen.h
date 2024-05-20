@@ -11,8 +11,10 @@ struct s_screen
 	char	*title;
 	void	*win;
 	void	*img;
+	int		*imgbuff;
+	void	*info_screen;
+	void	*info_screen_buff;
 	void	*black_screen;
-	int	*imgbuff;
 };
 
 t_screen	*screen_create_null(void);

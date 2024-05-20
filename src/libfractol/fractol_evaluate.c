@@ -1,16 +1,17 @@
 #include"libfractol.h"
 #include"libiterator.h"
+#include"math.h"
 
-int	fractol_evaluate(t_fractol *self, t_pt pt)
+double	fractol_evaluate(t_fractol *self, t_pt pt)
 {
-	t_iterator	iterator;
-	int			iterations;
+	double			iterations;
+	double		scale;
 
-	iterator_init(&iterator);
-	iterator.max_iteration = 16 * 16 / (self->camera.size.x / 4);
-	self->iterator(&iterator, pt);
-	iterations = iterator_run(&iterator);
-	if (iterations == iterator.max_iteration)
+	scale = self->camera.size.x / self->screen->size.x;
+	//iterator_init(&(self->iterator_data));
+	self->iterator(&(self->iterator_data), pt);
+	iterations = iterator_run(&self->iterator_data);
+	if (iterations == self->iterator_data.max_iteration)
 		return (-1);
 	else
 		return (iterations);

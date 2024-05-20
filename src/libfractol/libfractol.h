@@ -9,17 +9,25 @@
 // Zoom intensity
 # define ZOOM_IN_FACTOR		0.8
 # define ZOOM_OUT_FACTOR	1.4
-# define KEYPRESS_DELTA		100
+# define KEYPRESS_DELTA		33
 
 // Mouse bindings for : zoom
 # define MOUSE_ZOOM_IN		4
 # define MOUSE_ZOOM_OUT		5
 
 // Keyboard bindings for: translate
-# define KEY_MOVE_UP		0x1
-# define KEY_MOVE_DOWN		0xd
+# define KEY_MOVE_UP		0xd
+# define KEY_MOVE_DOWN		0x1
 # define KEY_MOVE_RIGHT		0x2
 # define KEY_MOVE_LEFT		0x0
+
+# define KEY_MORE_ITER		0x45
+# define KEY_LESS_ITER		0x4e
+
+# define KEY_XMOVE_UP		0x56		
+# define KEY_XMOVE_DOWN		0x5b
+# define KEY_XMOVE_RIGHT	0x58
+# define KEY_XMOVE_LEFT		0x54
 
 // Keyboard bindings for: zoom
 # define KEY_ZOOM_IN		1111
@@ -43,7 +51,7 @@ void						fractol_draw(t_fractol *self);
 void						fractol_exit(t_fractol *self);
 void						fractol_destroy(t_fractol *self);
 int							fractol_getcolor(t_fractol *self, t_pt spt);
-int							fractol_evaluate(t_fractol *self, t_pt pt);
+double						fractol_evaluate(t_fractol *self, t_pt pt);
 
 struct s_fractol
 {
@@ -51,6 +59,7 @@ struct s_fractol
 	int				loop_counter;
 	int				update;
 	t_iterator_fn	iterator;
+	t_iterator		iterator_data;
 	t_camera		camera;
 	t_screen		*screen;
 	void			*mlx;
