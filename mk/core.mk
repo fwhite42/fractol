@@ -44,15 +44,18 @@ CFLAGS		:= -Wall -Werror -Wextra -o3
 CPPFLAGS	:= -I$(includedir)
 vpath %.a	$(libdir)
 
+OS	= $(shell uname)
 ifeq ($(OS),Darwin)
 CPPFLAGS += -framework OpenGl -framework AppKit
 
 endif
 
 ifeq ($(OS),Linux)
-CPPFLAGS += -X11 -Xext
+LINK_LIBRARIES += -lX11 -lXext -lm
 endif
 
+fuck:
+	echo $(OS)
 
 
 $(NAME)		:$(NAME).c $(LIBRARY_FILES)

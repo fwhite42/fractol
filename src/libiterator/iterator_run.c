@@ -52,7 +52,6 @@ double	iterator_run(t_iterator *self)
 		i += 1;
 	}
 	//printf("b4 %f\n", i);
-	/*
 	double abs_z = z.x * z.x + z.y * z.y;
 	if ((int) i < self->max_iteration)
 	{
@@ -61,6 +60,5 @@ double	iterator_run(t_iterator *self)
 	//	printf("after %f\n", i);
 	//	printf("diff %f\n", j - i);
 	}
-	*/
 	return (i);
 }

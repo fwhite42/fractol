@@ -14,5 +14,5 @@ void	iterator_init(t_iterator *self)
 	self->r = 2 * 2;
 	self->n = 2;
 	self->f = id;
-	self->max_iteration = 64;
+	self->max_iteration = 256;
 }
