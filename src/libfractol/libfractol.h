@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   libfractol.h                                            4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/21 08:21:12 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/21 14:18:00 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFRACTOL_H
 # define LIBFRACTOL_H
 
@@ -11,35 +23,39 @@
 # define ZOOM_OUT_FACTOR	1.4
 # define KEYPRESS_DELTA		33
 
-// Mouse bindings for : zoom
-# define MOUSE_ZOOM_IN		4
-# define MOUSE_ZOOM_OUT		5
+/* ************************************************************************** */
+/*	MacOS key bindings														  */
+/* ************************************************************************** */
 
-// Keyboard bindings for: translate
-# define KEY_MOVE_UP		0xd
-# define KEY_MOVE_DOWN		0x1
-# define KEY_MOVE_RIGHT		0x2
-# define KEY_MOVE_LEFT		0x0
+// WheelDown ; WheelUp
+# define MOUSE_ZOOM_IN				4
+# define MOUSE_ZOOM_OUT				5
 
-# define KEY_MORE_ITER		0x45
-# define KEY_LESS_ITER		0x4e
+//W ; S ; D ; A
+# define KEY_MOVE_UP				0xd
+# define KEY_MOVE_DOWN				0x1
+# define KEY_MOVE_RIGHT				0x2
+# define KEY_MOVE_LEFT				0x0
 
-# define KEY_XMOVE_UP		0x56		
-# define KEY_XMOVE_DOWN		0x5b
-# define KEY_XMOVE_RIGHT	0x58
-# define KEY_XMOVE_LEFT		0x54
+//NumPad+, NumPad-
+# define KEY_MORE_ITER				0x45
+# define KEY_LESS_ITER				0x4e
 
-// Keyboard bindings for: zoom
-# define KEY_ZOOM_IN		1111
-# define KEY_ZOOM_OUT		1111
+//NumPad8 ; NumPad2 ; NumPad4 ; NumPad6
+# define KEY_XMOVE_UP				0x56		
+# define KEY_XMOVE_DOWN				0x5b
+# define KEY_XMOVE_RIGHT			0x58
+# define KEY_XMOVE_LEFT				0x54
 
-// Keybord binding for: quit the app
-# define KEY_ESC			0x35
-# define KEY_SPACE_BAR		1111
+// I ; O
+# define KEY_ZOOM_IN				0x22
+# define KEY_ZOOM_OUT				0x1f
 
-// Program Threasholds
-# define MLX_LOOPS_COUNTER_TH	1024
-# define FRACTAL_ITERATION_TH	256
+# define KEY_ESC					0x35
+# define KEY_SPACE_BAR				0x31
+
+# define FRACTOL_REFRESH_RATE		1024
+# define KEY_ANTI_ALIAS				0x57
 
 typedef struct s_fractol	t_fractol;
 
@@ -55,6 +71,9 @@ double						fractol_evaluate(t_fractol *self, t_pt pt);
 
 struct s_fractol
 {
+	int				color_type;
+	int				color_source;
+	int				draw_console;
 	int				*palette;
 	int				loop_counter;
 	int				update;
@@ -63,6 +82,7 @@ struct s_fractol
 	t_camera		camera;
 	t_screen		*screen;
 	void			*mlx;
+	char			*fractal_name;
 };
 
 #endif

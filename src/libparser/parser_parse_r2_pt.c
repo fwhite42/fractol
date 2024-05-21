@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   parse_r2_point.c                                        4 2              */
+/*   parser_parse_r2_pt.c                                    4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/18 13:29:24 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/18 13:43:04 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/21 14:30:41 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
@@ -40,10 +40,9 @@ static void	consume_digit(const char *digit, double *nbr, double *error)
 
 static double ft_atol(const char *str)
 {
-	double		nbr;
 	int			sign;
+	double		nbr;
 	double		error;
-
 
 	nbr = 0;
 	sign = 1;

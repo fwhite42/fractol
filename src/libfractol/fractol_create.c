@@ -6,24 +6,32 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/16 12:44:15 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/18 16:18:22 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/21 14:17:59 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libfractol.h"
 #include"libmlx.h"
+#include"libfractol.h"
+#include"libmlx.h"
+#include"libiterator.h"
 
-t_fractol	*fractol_create(t_pt cs, t_pt cc, t_pt ss, t_iterator_fn fn);
+t_fractol	*fractol_create(t_pt screen_size)
 {
 	t_camera	camera;
 	t_fractol	*self;
 
+	camera.size = (t_pt) {4, 4};
+	camera.center = (t_pt) {0, 0};
 	self = fractol_create_null();
 	self->mlx = mlx_init();
-	self->camera.size = cs;
-	self->camera.center = cc;
-	self->iterator = fn;
+	self->screen = screen_create(screen_size, "Fract'ol", self->mlx);
+	self->camera = camera;
+	self->iterator = iterator_mandelbrot;
+	iterator_init(&(self->iterator_data));
 	self->update = 1;
-	self->screen = screen_create(ss, "Fract'ol", self->mlx);
+	self->draw_console = 1; 
+	self->color_type = 0;
+	self->color_source = 0x000099cc;
 	return (self);
 }

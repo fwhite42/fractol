@@ -17,10 +17,13 @@ static int	fractol_onzoom(int cmd, int x, int y, void *this)
 	pt = camera_rescale(camera, screen, pt);
 	pt = camera_transform(camera, pt);
 	pt = camera_translate(camera, pt);
+	printf("m:%i\n", cmd);
 	if (cmd == MOUSE_ZOOM_IN)
 		camera_zoom(camera, screen, (t_pt) {x, y}, ZOOM_IN_FACTOR);
-	if (cmd == MOUSE_ZOOM_OUT)
+	else if (cmd == MOUSE_ZOOM_OUT)
 		camera_zoom(camera, screen,  (t_pt) {x, y}, ZOOM_OUT_FACTOR);
+	else
+		return (1);
 	self->update = 1;
 	return (0);
 }
@@ -32,8 +35,8 @@ static int	fractol_onkeypress(int keycode, void *this)
 
 	self = this;
 	camera = self->camera;
-	if (keycode == KEY_ESC || keycode == KEY_SPACE_BAR)
-		return (mlx_clear_window(self->mlx, self->screen->win));
+	if (keycode == KEY_ESC)
+		fractol_exit(self);
 	else if (keycode == KEY_MOVE_UP)
 		self->camera.center.y += self->camera.size.y / KEYPRESS_DELTA;
 	else if (keycode == KEY_MOVE_DOWN)
@@ -61,11 +64,16 @@ static int	fractol_onkeypress(int keycode, void *this)
 		if (self->iterator_data.max_iteration > 1)
 			self->iterator_data.max_iteration /= 2;
 	}
-	else
+	else if (keycode == KEY_ANTI_ALIAS)
 	{
-		ft_printf("Keycode : %#x\n", keycode);
+		self->iterator_data.anti_alias = !self->iterator_data.anti_alias;
+	}
+	else if (keycode != 0x11)
+	{
+		ft_printf("Received invalid user input: %#x\n", keycode);
 		return (1);
 	}
+	ft_printf("Received valid user input: %#x\n", keycode);
 	self->update = 1;
 	return (0);
 }
@@ -78,13 +86,14 @@ static int	fractol_onloop(void *self)
 	this->loop_counter++;
 	if (this->update == 0)
 		return (0);
-	if (this->loop_counter > MLX_LOOPS_COUNTER_TH)
+	if (this->loop_counter > FRACTOL_REFRESH_RATE)
 	{
+		ft_printf("Screen is refreshing, please wait\n");
 		this->loop_counter = 0;
-		ft_printf("Received user input, redrawing...\n");
 		fractol_draw(self);
+		this->update = 0;
+		return (0);
 	}
-	this->update = 0;
 	return (0);
 }
 

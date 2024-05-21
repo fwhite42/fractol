@@ -16,5 +16,8 @@ t_fractol	*fractol_create_default(void)
 	self->iterator = iterator_mandelbrot;
 	iterator_init(&(self->iterator_data));
 	self->update = 1;
+	self->draw_console = 1; 
+	self->color_type = 0;
+	self->color_source = 0x000099cc;
 	return (self);
 }
