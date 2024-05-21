@@ -30,14 +30,12 @@ $(HEADER): $(TARGET)/mlx.h
 	cp $(TARGET)/mlx.h libmlx.h
 
 # Cleaners
-
 fclean: clean
 	$(RM) *.o
 	$(RM) *.a
 #	$(RM) *.h
 
 # Run test
-
 test: $(ARCHIVE)
 	sh $(TARGET)/test/run_tests.sh
 	gcc test.c -L. -lmlx -lX11 -lXext -o test

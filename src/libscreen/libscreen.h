@@ -18,7 +18,6 @@ struct s_screen
 };
 
 t_screen	*screen_create_null(void);
-
 // Caller has to be a mlx instance
 t_screen	*screen_create(t_pt size, char *title, void *caller);
 void		screen_refresh(t_screen *self, void *caller);

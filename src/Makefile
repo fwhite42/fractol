@@ -39,7 +39,7 @@ check:
 ###############################################################################
 
 ## Implicit rules for compiling C programs
-CC		:= gcc
+CC			:= gcc
 CFLAGS		:= -Wall -Werror -Wextra -o3
 CPPFLAGS	:= -I$(includedir) -I$(CURDIR)	
 

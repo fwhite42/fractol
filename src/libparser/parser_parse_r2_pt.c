@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/18 13:29:24 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/21 14:30:41 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/21 19:11:49 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
@@ -49,12 +49,6 @@ static double ft_atol(const char *str)
 	error = 0;
 	while (ft_isspace(*str))
 		str++;
-	if (ft_strlen(str) >= 11 &&\
-			ft_strncmp("-9223372036854775808", str, 11) == 0)
-	{
-		if (!ft_isdigit(str[11]))
-			return (-9223372036854775808);
-	}
 	if (*str == '-' || *str == '+')
 	{
 		if (*str++ == '-')
@@ -66,29 +60,32 @@ static double ft_atol(const char *str)
 }
 
 
-static double_parse_double(char *str)
+static double parser_parse_double(char *str)
 {
 	char	*long_int_str;
 	char	**split;
 	double	nbr;
 
-	split = ft_split(str);
+	split = ft_split(str, '.');
 	long_int_str = ft_strjoin(split[0], split[1]);
 	nbr  = ft_atol(long_int_str);
 	nbr /= ft_strlen(split[1]);
  	free(split[0]);
 	free(split[1]);
 	free(split);
+	return (nbr);
 }
 
-double	parser_parse_r2_pt[2](char *data, char sep)
+#include"libcplx.h"
+
+t_pt	parser_parse_r2_pt(char *data, char sep)
 {
 	char	**split;
-	double	pt[2];
+	t_pt	pt;
 
 	split = ft_split(data, sep);
-	pt[0] = parse_double(split[0]);
-	pt[1] = parse_double(split[1]);
+	pt.x = parser_parse_double(split[0]);
+	pt.y = parser_parse_double(split[1]);
 	free(split[0]);
 	free(split[1]);
 	free(split);

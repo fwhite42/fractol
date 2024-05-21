@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/21 08:21:12 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/21 14:18:00 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/21 19:17:44 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct s_fractol	t_fractol;
 
 t_fractol					*fractol_create_null(void);
 t_fractol					*fractol_create_default(void);
-t_fractol					*fractol_create_custom(int ac, char **av);
+t_fractol					*fractol_create(t_pt size);
 void						fractol_start(t_fractol *self);
 void						fractol_draw(t_fractol *self);
 void						fractol_exit(t_fractol *self);
