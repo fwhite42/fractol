@@ -5,12 +5,12 @@ NAME	:= fractol
 # Tells core.mk to link X11 libraries when compiling $(NAME).c
 X11	:= FALSE
 
-MLX_MACOS := TRUE
+MLX_MACOS := FALSE
 
 # Source libraries
 RARIES	:=		\
-	mlx			\
-	ft			\
+	mlx		\
+	ft		\
 	ftprintf	\
 	error		\
 	parser		\
