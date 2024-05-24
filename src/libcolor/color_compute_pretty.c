@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   screen_draw_px.c                                        4 2              */
+/*   color_compute_pretty.c                                  4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/22 17:55:22 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/23 12:03:32 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/22 13:49:51 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/23 05:23:22 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libscreen.h"
-#include"libmlx.h"
+#include"libcolor.h"
+#include<math.h>
 
-void	screen_draw_px(t_screen *self, t_pt pos, int color)
+int color_compute_pretty(int type, int source, double id)
 {
-	int	*img_buffer;
-	int	tmp[3];
+	double	t;
+	int		color1;
+	int		color2;
 
-	img_buffer = (int *)mlx_get_data_addr(self->img, tmp, tmp + 1, tmp + 2);
-	img_buffer[(int) (pos.y * self->size.x + pos.x)] = color;
+	if (id == -1)
+		return (id);
+	color1 = color_compute(type, source, floor(id));
+	color2 = color_compute(type, source, floor(id) + 1);
+	t = id - floor(id);
+	if (color1 != color2)
+		return (color_interpolate(color1, color2, t));
+	else
+		return (color1);
 }

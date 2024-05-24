@@ -1,6 +1,6 @@
 METHODS	:=		\
 	create_null	\
-	create		\
+	init		\
 	refresh		\
 	foreach_px	\
 	destroy		\

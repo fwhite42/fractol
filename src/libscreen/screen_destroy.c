@@ -1,7 +1,8 @@
 #include"libscreen.h"
 #include<stdlib.h>
 
-void	screen_destroy(t_screen *self)
+void	screen_destroy(t_screen *self, void *mlx)
 {
-	free(self);
+	mlx_destroy_window(mlx, self->win);
+	mlx_destroy_image(mlx, self->old_img);
 }

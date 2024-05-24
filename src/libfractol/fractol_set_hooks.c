@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   screen_draw_px.c                                        4 2              */
+/*   fractol_set_hooks.c                                     4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/22 17:55:22 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/23 12:03:32 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/22 18:11:31 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/23 14:39:56 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libscreen.h"
+#include"libfractol.h"
 #include"libmlx.h"
 
-void	screen_draw_px(t_screen *self, t_pt pos, int color)
+void	fractol_set_hooks(t_fractol *self)
 {
-	int	*img_buffer;
-	int	tmp[3];
-
-	img_buffer = (int *)mlx_get_data_addr(self->img, tmp, tmp + 1, tmp + 2);
-	img_buffer[(int) (pos.y * self->size.x + pos.x)] = color;
+	mlx_mouse_hook(self->screen->win, fractol_onzoom, self);
+	mlx_key_hook(self->screen->win, fractol_onkeypress, self);
+	mlx_loop_hook(self->mlx, fractol_onloop, self);
 }

@@ -8,7 +8,6 @@ void	fractol_exit(t_fractol *self)
 {
 	ft_printf("Ungracefully closing the program:\n");
 	screen_destroy(self->screen);
-	free(self);
 	ft_printf("\tAdios 🖕\n");
-	exit(-1);
+	exit(0);
 }

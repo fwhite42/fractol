@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   fractol_evaluate.c                                      4 2              */
+/*   fractol_change_max_iteration.c                          4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/22 22:40:57 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/22 22:41:07 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/22 18:46:43 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/22 18:48:41 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libfractol.h"
-#include"libiterator.h"
-#include<math.h>
-
-double	fractol_evaluate(t_fractol *self, t_pt pt)
+int	fractol_change_max_iteration(t_fractol *self, int cmd)
 {
-	double			iterations;
-
-	self->iterator_fn(&(self->iterator_data), pt);
-	iterations = iterator_run(&self->iterator_data);
-	if (iterations == self->iterator_data.max_iteration)
-		return (-1);
+ 	if (cmd == KEY_MORE_ITER)
+		self->iterator_data.max_iteration *= 2;
+	else if (cmd == KEY_LESS_ITER)
+			self->iterator_data.max_iteration /= 2;
 	else
-		return (iterations);
+		return (0);
+	if (self->iterator_data.max_iteration < 1)
+		self->iterator_data.max_iteration = 1;
+	if (self->iterator_data.max_iteration > 1 << 16)
+		self->iterator_data.max_iteration = 1 << 16;
+	return (1);
 }

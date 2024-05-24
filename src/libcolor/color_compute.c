@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   screen_draw_px.c                                        4 2              */
+/*   color_compute.c                                         4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/22 17:55:22 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/23 12:03:32 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/22 15:10:25 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/22 15:11:53 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libscreen.h"
-#include"libmlx.h"
+#include<math.h>
 
-void	screen_draw_px(t_screen *self, t_pt pos, int color)
+int	color_compute(int type, int src, double color_id)
 {
-	int	*img_buffer;
-	int	tmp[3];
+	int	color;
 
-	img_buffer = (int *)mlx_get_data_addr(self->img, tmp, tmp + 1, tmp + 2);
-	img_buffer[(int) (pos.y * self->size.x + pos.x)] = color;
+	color = 0;
+	if (type == 0)
+		color = pow(color_id, 3) + (2 * color_id * src) + 1;
+	else if (type == 1)
+		color = pow(color_id, 2);
+	else
+		color = floor(color_id) + 42 * 42;
+	return (color);
 }

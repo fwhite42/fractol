@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   screen_draw_px.c                                        4 2              */
+/*   mlxconsole_draw.c                                       4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/22 17:55:22 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/23 12:03:32 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/22 13:50:21 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/22 13:50:54 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libscreen.h"
-#include"libmlx.h"
+#include"libmlxconsole.h"
 
-void	screen_draw_px(t_screen *self, t_pt pos, int color)
+void	mlxconsole_draw(t_mlxconsole *self)
 {
-	int	*img_buffer;
-	int	tmp[3];
-
-	img_buffer = (int *)mlx_get_data_addr(self->img, tmp, tmp + 1, tmp + 2);
-	img_buffer[(int) (pos.y * self->size.x + pos.x)] = color;
+	int		i;
+	int		j;
+	int		pos_x;
+	int		pos_y;
+	
+	i = 0;
+	while (i < self->size.x)
+	{
+		j = 0;
+		while (j < self->size.y)
+		{
+			pos_x = i + self->offset.x;
+			pos_y = j + self->offset.y;
+			mlx_pixel_put(self->mlx, self->win, pos_x, pos_y, self->bg_color);
+			j++;
+		}
+		i++;
+	}
 }

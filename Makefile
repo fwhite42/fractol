@@ -9,8 +9,9 @@ MLX_MACOS := FALSE
 
 # Source libraries
 RARIES	:=		\
-	mlx		\
-	ft		\
+	mlx			\
+	ft			\
+	ft2			\
 	ftprintf	\
 	error		\
 	parser		\

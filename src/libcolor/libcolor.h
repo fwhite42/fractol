@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/18 22:27:30 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/21 16:45:26 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/22 19:10:44 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int			color_from_rgbapt(t_rgbapt color);
 
 // RGBA-points can be used to compute interpolations of colors
 int			color_interpolate(int color1, int color2, double t);
+int			color_compute(int type, int source, double param);
+int			color_compute_pretty(int type, int source, double param);
 
 int			*color_palette_create(int *a, int *b, int c);
 int			*color_palette_destroy(int *palette);
