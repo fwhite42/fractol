@@ -6,9 +6,12 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 19:03:24 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/22 19:03:59 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/26 18:32:09 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include"libmlxconsole.h"
+#include"libfractol.h"
 
 void	fractol_show_console(t_fractol *self)
 {

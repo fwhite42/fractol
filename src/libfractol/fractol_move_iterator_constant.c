@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 18:26:45 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/23 16:35:42 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/26 16:57:15 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	fractol_move_iterator_constant(t_fractol *self, int keycode)
 	if (keycode == KEY_XMOVE_UP)
 			target->y += self->camera.size.y / KEYPRESS_DELTA;
 	else if (keycode == KEY_XMOVE_DOWN)
-			target->x -= self->camera.size.y / KEYPRESS_DELTA;
+			target->y -= self->camera.size.y / KEYPRESS_DELTA;
 	else if (keycode == KEY_XMOVE_LEFT)
 			target->x -= self->camera.size.x / KEYPRESS_DELTA;
 	else if (keycode == KEY_XMOVE_RIGHT)

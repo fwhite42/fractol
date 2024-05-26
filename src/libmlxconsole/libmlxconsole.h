@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:32:11 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/22 18:59:12 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/26 18:25:18 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define LIBMLXCONSOLE_H
 
 typedef struct s_mlxconsole	t_mlxconsole;
+
+#include"libcplx.h"
+#include"libfractol.h"
 
 struct s_mlxconsole
 {
@@ -28,7 +31,7 @@ struct s_mlxconsole
 
 t_mlxconsole	mlxconsole_default(t_fractol *self);
 
-void	mlxconsole_draw(t_mlxconsole *self)
-void	mlxconsole_write(t_mlxconsole *self, char *str)
-void	mlxconsole_write_info_line(t_mlxconsole *self, char *key, char *valye)
+void	mlxconsole_draw(t_mlxconsole *self);
+void	mlxconsole_write(t_mlxconsole *self, char *str);
+void	mlxconsole_write_info_line(t_mlxconsole *self, char *key, char *valye);
 #endif

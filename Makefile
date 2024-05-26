@@ -17,6 +17,7 @@ RARIES	:=		\
 	parser		\
 	cplx		\
 	color		\
+	mlxconsole	\
 	iterator	\
 	screen		\
 	camera		\

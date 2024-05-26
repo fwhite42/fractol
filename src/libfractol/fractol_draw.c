@@ -31,4 +31,6 @@ void	fractol_draw(t_fractol *self)
 	screen_foreach_px(self->screen, _draw_pt, self);
 	ft_printf("done.\n");
 	screen_refresh(self->screen, self->mlx);	
+	if (self->draw_console_switch == 1)
+		fractol_show_console(self);
 }

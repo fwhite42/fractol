@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   fractol.c                                               4 2              */
+/*   fractol_config_camera_center.c                          4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/16 12:06:59 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 15:41:35 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/22 23:45:15 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/26 16:38:12 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libfractol.h"
-#include"libparser.h"
 #include"libft.h"
 #include"libft2.h"
 
-#include<stdio.h>
-
-int	main(int ac, char **av)
+void	fractol_config_camera_center(t_fractol *self, char *option)
 {
-	t_screen	screen;
-	t_parser	options;
-	t_fractol	self;
+	char	**split;
+	t_pt	camera_center;
 
-	ft_bzero(&options, sizeof(t_parser));
-	ft_bzero(&self, sizeof(t_fractol));
-	ft_bzero(&screen, sizeof(t_screen));
-
-	self.screen = &screen;
-	self.screen->title = "Fract'ol";
-	parser_parse_cmd_line_options(&options, ac, av);
-	printf("ok\n");
-	fractol_configure(&self, &options);
-	fractol_set_hooks(&self);
-	fractol_start(&self);
-	return (0);
+	if (option)
+	{
+		split = ft_split(option, 'x');
+		camera_center.x = ft2_unsafe_strtod(split[0]);
+		camera_center.y = ft2_unsafe_strtod(split[1]);
+	}
+	else
+	{
+		camera_center.x = 0;
+		camera_center.y = 0;
+	}
+	self->camera.center = camera_center;
 }

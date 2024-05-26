@@ -6,9 +6,11 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 18:46:43 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/22 18:48:41 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/26 16:31:17 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include"libfractol.h"
 
 int	fractol_change_max_iteration(t_fractol *self, int cmd)
 {

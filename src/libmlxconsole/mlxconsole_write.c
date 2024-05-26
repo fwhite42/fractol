@@ -6,11 +6,12 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:40:38 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/22 13:42:36 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/26 17:24:55 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libmlx.h"
+#include"libmlxconsole.h"
 
 void	mlxconsole_write(t_mlxconsole *self, char *str)
 {

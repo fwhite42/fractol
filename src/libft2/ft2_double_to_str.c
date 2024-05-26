@@ -6,10 +6,12 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:36:35 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/22 13:38:33 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/26 18:22:44 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 #include<math.h>
+#include"libft.h"
+#include<stdlib.h>
 
 char	*ft2_double_to_str(double x)
 {

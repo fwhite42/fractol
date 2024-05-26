@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   fractol_config_screen_size.c                            4 2              */
+/*   fractol_change_iterator_power.c                         4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/22 23:45:15 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 15:45:50 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/26 16:28:48 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/26 16:31:14 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libfractol.h"
-#include"libft.h"
-#include"libft2.h"
 
-void	fractol_config_screen_size(t_fractol *self, char *option)
+int	fractol_change_iterator_power(t_fractol *self, int cmd)
 {
-	char	**split;
-	t_pt	screen_size;
-
-	if (option)
-	{
-		split = ft_split(option, 'x');
-		screen_size.x = ft2_unsafe_strtod(split[0]);
-		screen_size.y = ft2_unsafe_strtod(split[1]);
-	}
-	else if (!option || !screen_size.x || !screen_size.y)
-	{
-		screen_size.x = 800;
-		screen_size.y = 800;
-	}
-	self->screen->size = screen_size;
+	if (cmd == KEY_INCREASE_ITER_POW)
+		self->iterator_data.n += 1;
+	else (cmd == KEY_DECREASE_ITER_POW)
+		self->iterator_data -= 1;
+	else
+		return (0);
+	return (1);
 }
