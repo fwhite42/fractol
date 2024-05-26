@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   fractol_start.c                                         4 2              */
+/*   fractol_init_mlx.c                                      4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/22 18:54:11 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 19:52:11 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/22 23:38:50 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/26 19:38:57 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include"libfractol.h"
 #include"libmlx.h"
+#include"liberror.h"
 
-void	fractol_start(t_fractol *self)
+void	fractol_init_mlx(t_fractol *self)
 {
-	self->requires_image_update = 1;
-	mlx_loop(self->mlx);
+	self->mlx = mlx_init();
+	if (!self->mlx)
+		error_fatal("Cannot init mlx", -42);
 }

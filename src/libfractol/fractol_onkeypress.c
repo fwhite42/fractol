@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/23 14:41:46 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 17:25:14 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/26 20:31:14 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 int	fractol_onkeypress(int cmd, void *self)
 {
-	int	success;
+	int			success;
+	t_fractol	*this;
 
+	this = self;
 	success = 0;
 	if (fractol_move_camera(self, cmd))
 		success = 1;
@@ -27,11 +29,17 @@ int	fractol_onkeypress(int cmd, void *self)
 	else if (fractol_change_max_iteration(self, cmd))
 		success = 1;
 	else if (cmd == KEY_SPACE_BAR)
-		fractol_show_console(self);
+	{
+		this->draw_console_switch = !this->draw_console_switch;
+		if (!this->draw_console_switch)
+			screen_refresh_old(this->screen, this->mlx);
+		else
+			fractol_show_console(self);
+	}
 	if (success)
 	{
 		ft_printf("Received user command\n");
-		((t_fractol *)self)->requires_image_update = 1;
+		this->requires_image_update = 1;
 	}
 	else
 	{

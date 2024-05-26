@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   fractol_init.c                                          4 2              */
+/*   parser_destroy.c                                        4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
-/*   Created: 2024/05/22 23:38:50 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/23 11:12:01 by fwhite42           _)/_\---/_\(_         */
+/*   Created: 2024/05/26 20:05:59 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/26 20:06:49 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libfractol.h"
-#include"libscreen.h"
-#include"libmlx.h"
 
-void	fractol_init(t_fractol *self)
+#include"libparser.h"
+#include<stdlib.h>
+
+void	parser_destroy(t_parser *self)
 {
-	self->screen = screen_create_null();
-	self->mlx = mlx_init();
+	free(self->options);
 }

@@ -7,7 +7,7 @@ METHODS	:=							\
 	configure						\
 	configure_default				\
 	start							\
-	init							\
+	init_mlx							\
 	destroy							\
 	evaluate						\
 	draw							\

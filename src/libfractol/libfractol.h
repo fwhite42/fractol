@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/21 08:21:12 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 18:32:12 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/26 20:24:17 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,42 +74,42 @@
 typedef struct s_fractol	t_fractol;
 typedef enum e_color_type	t_color_type;
 
-void				fractol_config_fractal_fn(t_fractol *self, char *option);
-void				fractol_config_screen_size(t_fractol *self, char *option);
-void				fractol_config_camera_size(t_fractol *self, char *option);
-void				fractol_config_camera_center(t_fractol *self, char *option);
-void				fractol_config_constant_pt(t_fractol *self, char *option);
+void	fractol_config_fractal_fn(t_fractol *self, char *option);
+void	fractol_config_screen_size(t_fractol *self, char *option);
+void	fractol_config_camera_size(t_fractol *self, char *option);
+void	fractol_config_camera_center(t_fractol *self, char *option);
+void	fractol_config_constant_pt(t_fractol *self, char *option);
 
-void				fractol_draw(t_fractol *self);
-void				fractol_init(t_fractol *self);
+void	fractol_draw(t_fractol *self);
+void	fractol_init_mlx(t_fractol *self);
 
 #include"libmlxconsole.h"
-void				fractol_print_camera_data_on_screen(t_fractol *selfi, t_mlxconsole *console);
-void				fractol_print_iterator_data_on_screen(t_fractol *self, t_mlxconsole *console);
+void	fractol_print_camera_data_on_screen(t_fractol *selfi, t_mlxconsole *console);
+void	fractol_print_iterator_data_on_screen(t_fractol *self, t_mlxconsole *console);
 
-void				fractol_unshow_console(t_fractol *self);
-void				fractol_show_console(t_fractol *self);
+void	fractol_unshow_console(t_fractol *self);
+void	fractol_show_console(t_fractol *self);
 
-void				fractol_start(t_fractol *self);
-void				fractol_exit(t_fractol *self);
-void				fractol_destroy(t_fractol *self);
-double				fractol_evaluate(t_fractol *self, t_pt pt);
+void	fractol_start(t_fractol *self);
+void	fractol_exit(t_fractol *self);
+void	fractol_destroy(t_fractol *self);
+double	fractol_evaluate(t_fractol *self, t_pt pt);
 
-void				fractol_configure(t_fractol *self, t_parser *opts);
-void				fractol_configure_default(t_fractol *self);
-// Sets all the listeners
-void				fractol_set_hooks(t_fractol *self);
+void	fractol_configure(t_fractol *self, t_screen *screen, int ac, char **av);
+void	fractol_configure_default(t_fractol *self);
 
-int					fractol_onzoom(int cmd, int x, int y, void *self);
-int					fractol_onloop(void *self);
+void	fractol_set_hooks(t_fractol *self);
 
-int					fractol_change_max_iteration(t_fractol *self, int cmd);
-int					fractol_toggle_antialias(t_fractol *self, int cmd);
-int					fractol_move_iterator_constant(t_fractol *self, int cmd);
-int					fractol_move_camera(t_fractol *self, int cmd);
-int					fractol_onkeypress(int cmd, void *self);
+int		fractol_onzoom(int cmd, int x, int y, void *self);
+int		fractol_onloop(void *self);
 
-int					fractol_getcolor(t_fractol *self, t_pt spt);
+int		fractol_change_max_iteration(t_fractol *self, int cmd);
+int		fractol_toggle_antialias(t_fractol *self, int cmd);
+int		fractol_move_iterator_constant(t_fractol *self, int cmd);
+int		fractol_move_camera(t_fractol *self, int cmd);
+int		fractol_onkeypress(int cmd, void *self);
+
+int		fractol_getcolor(t_fractol *self, t_pt spt);
 enum e_color_type
 {
 	color_cubic_0,
