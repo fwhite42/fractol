@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   libftprintf.h                                           4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/02/17 10:39:37 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/03/29 18:13:24 by fwhite42         ###   ########.fr       */
+/*   Updated: 2024/05/27 09:49:54 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ void			ftpf_write_string(int *counter, char *str, int limit);
 int				ftpf_read_number(const char **source);
 int				ftpf_write_number_base(char *base, unsigned int nbr, int *c);
 
-int	ft_printf(const char *source, ...);
+int				ft_printf(const char *source, ...);
 #endif

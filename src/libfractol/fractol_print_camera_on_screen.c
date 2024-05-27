@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   fractol_print_camera_data_on_screen.c                   4 2              */
+/*   fractol_print_camera_on_screen.c                        4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 19:01:20 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/27 01:59:03 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 10:42:08 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include"libft2.h"
 #include<stdlib.h>
 
-void	fractol_print_camera_data_on_screen(t_fractol *s, t_mlxconsole *cnsl)
+void	fractol_print_camera_on_screen(t_fractol *s, t_mlxconsole *cnsl)
 {
 	char	*data;
 

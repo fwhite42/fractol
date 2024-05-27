@@ -7,7 +7,7 @@ METHODS	:=							\
 	configure						\
 	configure_default				\
 	start							\
-	init_mlx							\
+	init_mlx						\
 	destroy							\
 	evaluate						\
 	draw							\
@@ -18,11 +18,12 @@ METHODS	:=							\
 	toggle_antialias				\
 	toggle_console					\
 	change_max_iteration			\
+	change_iterator_power			\
 	onkeypress						\
 	set_hooks						\
 	show_console					\
-	print_camera_data_on_screen		\
-	print_iterator_data_on_screen	\
+	print_camera_on_screen			\
+	print_iterator_on_screen		\
 	exit
 
 include ../Makefile

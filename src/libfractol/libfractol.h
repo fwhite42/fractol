@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/21 08:21:12 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/27 03:17:08 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 11:31:01 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include"libiterator.h"
 # include"libscreen.h"
 # include"libcamera.h"
+
 // Change camera position and size wrt to mouse position
 # define MOUSE_ZOOM_IN				0x04
 # define MOUSE_ZOOM_OUT				0x05
@@ -67,9 +68,8 @@
 # define DFLT_SCREEN_HEIGHT			512
 # define DFLT_CAMERA_CENTER_X		0
 # define DFLT_CAMERA_CENTER_Y		0
-# define DFLT_COLOR_SOURCE			0x000099cc
+# define DFLT_COLOR_SOURCE			0x007799cc
 # define DFLT_COLOR_TYPE			0
-
 
 typedef struct s_fractol	t_fractol;
 typedef enum e_color_type	t_color_type;
@@ -99,6 +99,7 @@ void	fractol_set_hooks(t_fractol *self);
 int		fractol_onzoom(int cmd, int x, int y, void *self);
 int		fractol_onloop(void *self);
 
+int		fractol_change_iterator_power(t_fractol *self, int cmd);
 int		fractol_change_max_iteration(t_fractol *self, int cmd);
 int		fractol_toggle_antialias(t_fractol *self, int cmd);
 int		fractol_toggle_console(t_fractol *self, int cmd);

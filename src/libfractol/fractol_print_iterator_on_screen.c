@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   fractol_print_iterator_data_on_screen.c                 4 2              */
+/*   fractol_print_iterator_on_screen.c                      4 2              */
 /*                                                        (@)-=-(@)           */
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 19:02:23 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/27 01:41:49 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 10:42:25 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include"libft.h"
 #include"libft2.h"
 
-void	fractol_print_iterator_data_on_screen(t_fractol *s, t_mlxconsole *cnsl)
+void	fractol_print_iterator_on_screen(t_fractol *s, t_mlxconsole *cnsl)
 {
 	char	*data;
 

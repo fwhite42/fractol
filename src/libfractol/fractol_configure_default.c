@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:49:58 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/27 03:17:09 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 10:05:17 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	fractol_configure_default(t_fractol *self)
 	t_pt		screen_size;
 	t_pt		camera_center;
 
-	camera_size = (t_pt) {DFLT_CAMERA_WIDTH, DFLT_CAMERA_HEIGHT};
-	camera_center = (t_pt) {DFLT_CAMERA_CENTER_X, DFLT_CAMERA_CENTER_Y};
-	screen_size = (t_pt) {DFLT_SCREEN_WIDTH, DFLT_SCREEN_HEIGHT};
+	camera_size = (t_pt){DFLT_CAMERA_WIDTH, DFLT_CAMERA_HEIGHT};
+	camera_center = (t_pt){DFLT_CAMERA_CENTER_X, DFLT_CAMERA_CENTER_Y};
+	screen_size = (t_pt){DFLT_SCREEN_WIDTH, DFLT_SCREEN_HEIGHT};
 	self->camera.size = camera_size;
 	self->camera.center = camera_center;
 	self->mlx = mlx_init();
@@ -32,11 +32,11 @@ void	fractol_configure_default(t_fractol *self)
 		error_fatal("Cannot init mlx.", -42);
 	self->screen->size = screen_size;
 	screen_init(self->screen, self->mlx);
-	iterator_init(&(self->iterator_data)); 
+	iterator_init(&(self->iterator_data));
 	self->fractal_name = "mandelbrot";
 	self->iterator_fn = iterator_mandelbrot;
 	self->requires_image_update = 1;
-	self->draw_console_switch = 1; 
+	self->draw_console_switch = 1;
 	self->color_type = DFLT_COLOR_TYPE;
 	self->color_source = DFLT_COLOR_SOURCE;
 }

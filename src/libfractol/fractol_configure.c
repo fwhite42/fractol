@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 22:37:06 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/27 03:15:54 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 11:27:21 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,22 @@ void static	_configure_iterator(t_fractol *self, t_parser *opts)
 	iterator_init(&(self->iterator_data));
 }
 
+void static _configure_colors(t_fractol *self, t_parser *opts)
+{
+	char	*option;
+
+	option = parser_get_cmd_line_option(opts, "color_source");
+	if (option)
+		self->color_source = ft_atoi(option);
+	else
+		self->color_source = DFLT_COLOR_SOURCE;
+	option = parser_get_cmd_line_option(opts, "color_type");
+	if (option)
+		self->color_type = ft_atoi(option);
+	else
+		self->color_type = 1;
+}
+
 void	fractol_configure(t_fractol *self, t_screen *screen, int ac, char **av)
 {
 	t_parser	opts;
@@ -62,5 +78,6 @@ void	fractol_configure(t_fractol *self, t_screen *screen, int ac, char **av)
 	_configure_screen(self, screen, &opts);
 	_configure_camera(self, &opts);
 	_configure_iterator(self, &opts);
+	_configure_colors(self, &opts);
 	parser_destroy(&opts);
 }

@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 10:15:04 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/22 13:38:35 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 10:41:07 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include<ctype.h>
 #include<stdlib.h>
 #include<math.h>
+
+static void	_task(char **str, int *sw, long long *ipart, long long *dpart);
 
 double	ft2_unsafe_strtod(char *str)
 {
@@ -32,19 +34,20 @@ double	ft2_unsafe_strtod(char *str)
 		str++;
 	}
 	while (*str != 0 && (isdigit(*str) || *str == '.'))
-	{
-		if (*str == '.' && decimal_switch == 0)
-		{
-			decimal_switch = 1;
-		}
-		else if (*str != '.')
-		{
-			integer_part *= 10;
-			integer_part += *str - '0';
-			if (decimal_switch == 1)
-				decimal_part++;
-		}
-		str++;
-	}
+		_task(&str, &decimal_switch, &integer_part, &decimal_part);
 	return (sign * integer_part / pow(10, decimal_part));
+}
+
+static void	_task(char **str, int *sw, long long *ipart, long long *dpart)
+{
+	if (**str == '.' && *sw == 0)
+		*sw = 1;
+	else if (**str != '.')
+	{
+		*ipart *= 10;
+		*ipart += **str - '0';
+		if (*sw == 1)
+			(*dpart)++;
+	}
+	(*str)++;
 }

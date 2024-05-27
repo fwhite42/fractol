@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/23 14:41:46 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/27 02:22:03 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 11:09:11 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int	fractol_onkeypress(int cmd, void *self)
 		success = 1;
 	else if (fractol_toggle_antialias(self, cmd))
 		success = 1;
-	else if (fractol_change_max_iteration(self, cmd))
-		success = 1;
 	else if (fractol_toggle_console(self, cmd))
 		success = 1;
+	else if (fractol_change_max_iteration(self, cmd))
+		success = 1;
+	else if (fractol_change_iterator_power(self, cmd))
+		success = 1;	
 	if (success)
 		this->requires_image_update = 1;
 	else

@@ -18,7 +18,6 @@ METHODS	:=		\
 	putnbr_fd	\
 	putstr_fd	\
 	split		\
-	split2		\
 	strchr		\
 	strdup		\
 	striteri	\

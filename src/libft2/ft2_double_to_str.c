@@ -6,12 +6,32 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:36:35 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 18:22:44 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 10:41:06 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 #include<math.h>
 #include"libft.h"
 #include<stdlib.h>
+
+static void	__handle_neg1(double *x, int *is_neg)
+{
+	*is_neg = 0;
+	if (x < 0)
+	{
+		*is_neg = 1;
+		*x = -(*x);
+	}
+}
+
+static void	__handle_neg2(char **str, char **dst, int is_neg)
+{
+	if (is_neg)
+	{
+		*dst = ft_strjoin("-", *str);
+		free(*str);
+		*str = *dst;
+	}
+}
 
 char	*ft2_double_to_str(double x)
 {
@@ -21,12 +41,7 @@ char	*ft2_double_to_str(double x)
 	double	decimal_part;
 	int		is_neg;
 
-	is_neg = 0;
-	if (x < 0)
-	{
-		is_neg = 1;
-		x = -x;
-	}
+	__handle_neg1(&x, &is_neg);
 	integer_part = floor(x);
 	decimal_part = floor(fabs((x - integer_part)) * 1000000000);
 	tmp[1] = ft_itoa(integer_part);
@@ -36,11 +51,6 @@ char	*ft2_double_to_str(double x)
 	nbr = ft_strjoin(tmp[0], tmp[1]);
 	free(tmp[1]);
 	free(tmp[0]);
-	if (is_neg)
-	{
-		tmp[0] = ft_strjoin("-", nbr);
-		free(nbr);
-		nbr = tmp[0];
-	}
+	__handle_neg2(&nbr, tmp, is_neg);
 	return (nbr);
 }

@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:32:11 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/27 03:15:35 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 09:46:31 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ struct s_mlxconsole
 	t_pt		cursor;
 };
 
-void	fractol_print_camera_data_on_screen(t_fractol *s, t_mlxconsole *c);
-void	fractol_print_iterator_data_on_screen(t_fractol *s, t_mlxconsole *c);
+void			fractol_print_camera_on_screen(t_fractol *s, t_mlxconsole *c);
+void			fractol_print_iterator_on_screen(t_fractol *s, t_mlxconsole *c);
 #endif
