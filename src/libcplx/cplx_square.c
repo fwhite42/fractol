@@ -6,13 +6,13 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/21 08:34:10 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/21 08:34:59 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 01:13:47 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libcplx.h"
 
-t_pt cplx_square(t_pt z)
+t_pt	cplx_square(t_pt z)
 {
 	t_pt	pt;
 

@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:50:21 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 18:25:19 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 02:38:51 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	mlxconsole_draw(t_mlxconsole *self)
 	int		j;
 	int		pos_x;
 	int		pos_y;
-	
+
 	i = 0;
 	while (i < self->size.x)
 	{

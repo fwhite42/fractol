@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   parser_get_cmd_line_option.c                            4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/27 02:42:13 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/27 02:42:25 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libparser.h"
 #include"libft.h"
-
-#include<stdio.h>
 
 char	*parser_get_cmd_line_option(t_parser *self, char *key)
 {

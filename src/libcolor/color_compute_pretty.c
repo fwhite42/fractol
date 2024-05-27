@@ -6,14 +6,14 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:49:51 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/23 05:23:22 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 01:22:31 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libcolor.h"
 #include<math.h>
 
-int color_compute_pretty(int type, int source, double id)
+int	color_compute_pretty(int type, int source, double id)
 {
 	double	t;
 	int		color1;

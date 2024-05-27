@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/16 14:41:46 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 20:06:49 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 02:45:28 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include"liberror.h"
 #include"libftprintf.h"
 
-static t_cmd_line_option _parse_one_option(char *option)
+static t_cmd_line_option	_parse_one_option(char *option)
 {
 	t_cmd_line_option	cmd_line_option;
 	char				**split;
@@ -37,7 +37,7 @@ static t_cmd_line_option _parse_one_option(char *option)
 
 void	parser_parse_cmd_line_options(t_parser *self, int ac, char **av)
 {
-	int	i;
+	int					i;
 	t_cmd_line_option	*options;
 
 	self->nbr_of_options = 0;

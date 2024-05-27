@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   cplx_abs.c                                              4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/27 01:15:13 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/27 01:19:23 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libcplx.h"
 #include"math.h"
 
-double cplx_abs(t_pt z)
+double	cplx_abs(t_pt z)
 {
-	return sqrt(z.x * z.x + z.y * z.y);
+	return (sqrt(z.x * z.x + z.y * z.y));
 }

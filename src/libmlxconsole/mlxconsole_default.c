@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:43:02 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 20:34:11 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 02:46:38 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_mlxconsole	mlxconsole_default(t_fractol *self)
 
 	console.mlx = self->mlx;
 	console.win = self->screen->win;
-	console.size.x = self->screen->size.x / 4;	
-	console.size.y = self->screen->size.y / 4;	
+	console.size.x = self->screen->size.x / 4;
+	console.size.y = self->screen->size.y / 4;
 	if (console.size.y < 256)
 		console.size.y = 256;
 	if (console.size.x < 40 * 8)

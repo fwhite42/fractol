@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/21 12:12:31 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/21 15:27:26 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 01:27:59 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include"libiterator.h"
 #include"libftprintf.h"
 
-static void	iterator_run_once_general(t_iterator *self, t_pt *z0)
+static void	_iterator_run_once_general(t_iterator *self, t_pt *z0)
 {
 	double	x;
 	double	y;
@@ -31,15 +31,15 @@ static void	iterator_run_once_general(t_iterator *self, t_pt *z0)
 	y = pow(y, self->n / 2);
 	y *= sin(self->n * atan2(z0->y, z0->x));
 	y += self->c.y;
-	*z0 = (t_pt) {x, y};
+	*z0 = (t_pt){x, y};
 }
 
-static void iterator_run_once(t_iterator *self, t_pt *z)
+static void	_iterator_run_once(t_iterator *self, t_pt *z)
 {
 	t_pt	pt;
 
 	if (self->n > 2)
-		return iterator_run_once_general(self, z);
+		return (_iterator_run_once_general(self, z));
 	pt.x = z->x * z->x - z->y * z->y;
 	pt.y = 2 * z->x * z->y;
 	pt.x += self->c.x;
@@ -57,8 +57,8 @@ double	iterator_run(t_iterator *self)
 	while ((int) i < self->max_iteration)
 	{
 		z = self->f(z);
-		iterator_run_once(self, &z);
-		if (z.x * z.x + z.y * z.y  > self->r) 
+		_iterator_run_once(self, &z);
+		if (z.x * z.x + z.y * z.y > self->r)
 			break ;
 		i += 1;
 	}

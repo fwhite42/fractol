@@ -6,14 +6,14 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/16 14:31:51 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 20:06:50 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 02:42:48 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBPARSER_H
 # define LIBPARSER_H
 
-#include"libcplx.h"
+# include"libcplx.h"
 
 typedef struct s_cmd_line_option	t_cmd_line_option;
 typedef struct s_parser				t_parser;

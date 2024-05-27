@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*   fractol_draw.c                                          4 2              */
+/*                                                        (@)-=-(@)           */
+/*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
+/*                                                       _/'-----'\_          */
+/*   Created: 2024/05/27 02:02:49 by fwhite42          \\ \\     // //        */
+/*   Updated: 2024/05/27 02:04:45 by fwhite42           _)/_\---/_\(_         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libfractol.h"
 #include"libcamera.h"
 #include"libscreen.h"
@@ -14,7 +26,7 @@ static void	_draw_pt(t_fractol *self, t_pt screen_pt)
 	t_pt	pt;
 	double	clr_id;
 	int		clr;
-	
+
 	pt = camera_rescale(&(self->camera), self->screen, screen_pt);
 	pt = camera_transform(&(self->camera), pt);
 	pt = camera_translate(&(self->camera), pt);
@@ -30,7 +42,7 @@ void	fractol_draw(t_fractol *self)
 	ft_printf("Generating picture...");
 	screen_foreach_px(self->screen, _draw_pt, self);
 	ft_printf("done.\n");
-	screen_refresh(self->screen, self->mlx);	
+	screen_refresh(self->screen, self->mlx);
 	if (self->draw_console_switch == 1)
 		fractol_show_console(self);
 }
