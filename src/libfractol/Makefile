@@ -16,6 +16,7 @@ METHODS	:=							\
 	move_camera						\
 	move_iterator_constant			\
 	toggle_antialias				\
+	toggle_console					\
 	change_max_iteration			\
 	onkeypress						\
 	set_hooks						\

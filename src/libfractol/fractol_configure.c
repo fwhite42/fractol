@@ -6,11 +6,12 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 22:37:06 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/27 02:22:00 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 03:15:54 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libfractol.h"
+#include"libparser.h"
 #include"libmlx.h"
 #include"libftprintf.h"
 #include"libscreen.h"
@@ -57,7 +58,7 @@ void	fractol_configure(t_fractol *self, t_screen *screen, int ac, char **av)
 
 	ft_bzero(self, sizeof(t_fractol));
 	fractol_init_mlx(self);
-	parser_parse_cmd_line_opts(&opts, ac, av);
+	parser_parse_cmd_line_options(&opts, ac, av);
 	_configure_screen(self, screen, &opts);
 	_configure_camera(self, &opts);
 	_configure_iterator(self, &opts);

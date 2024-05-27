@@ -6,7 +6,7 @@
 /*   By: fwhite42 <FUCK THE NORM>                          (  o  )            */
 /*                                                       _/'-----'\_          */
 /*   Created: 2024/05/22 13:49:58 by fwhite42          \\ \\     // //        */
-/*   Updated: 2024/05/26 16:25:18 by fwhite42           _)/_\---/_\(_         */
+/*   Updated: 2024/05/27 03:17:09 by fwhite42           _)/_\---/_\(_         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	fractol_configure_default(t_fractol *self)
 	screen_init(self->screen, self->mlx);
 	iterator_init(&(self->iterator_data)); 
 	self->fractal_name = "mandelbrot";
-	self->iterator_fn = DFLT_ITERATOR_FN;
+	self->iterator_fn = iterator_mandelbrot;
 	self->requires_image_update = 1;
 	self->draw_console_switch = 1; 
 	self->color_type = DFLT_COLOR_TYPE;
